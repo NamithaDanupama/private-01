@@ -1,0 +1,34 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+.navbar {
+    background-color: #343a40;
+    position: absolute;
+    transition: background-color 0.5s ease;
+}
+
+.navbar.scrolled {
+    background-color: #343a40;
+}
+.text-muted{
+    font-size: large;
+}
+.card-title{
+    text-decoration: underline;
+}
+
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('img/Default_background_image_for_my_personal_data_website_techica_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
