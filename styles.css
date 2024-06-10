@@ -3,7 +3,6 @@ body {
     scroll-behavior: smooth;
 }
 
-
 .navbar {
     background-color: #343a40;
     position: absolute;
@@ -13,10 +12,12 @@ body {
 .navbar.scrolled {
     background-color: #343a40;
 }
-.text-muted{
+
+.text-muted {
     font-size: large;
 }
-.card-title{
+
+.card-title {
     text-decoration: underline;
 }
 
