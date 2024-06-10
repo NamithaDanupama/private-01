@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="70">
 
@@ -46,17 +47,17 @@
     </header>
 
 
-    <section id="about" class="page-section">
+    <section id="about" class="page-section animate__animated">
         <div class="container">
             <h2 class="text-center mt-0">About Me</h2>
             <hr class="divider my-4">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 animate__animated animate__fadeIn">
                     <div class="about-image">
                         <img src="img/IMG_7134.JPG" class="img-fluid rounded-circle" alt="Profile Picture">
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 animate__animated animate__fadeIn">
                     <p class="text-muted" >As a passionate and dedicated Full Stack Developer, I, Namitha Danupama, bring a wealth of experience and a keen eye for detail to every project I undertake. At the age of 20, I have honed my skills in HTML, CSS, JavaScript, and Node.js, building dynamic and responsive web applications that not only meet but exceed client expectations. My journey into the world of development has been driven by a desire to create seamless and intuitive user experiences, leveraging my expertise to develop scalable and efficient solutions that address complex challenges.</p>
                 </br>
                 <p class="text-muted" >With a proven track record of delivering high-quality projects on time and within budget, I am adept at both frontend and backend development. My proficiency in HTML and CSS ensures that I can craft visually stunning and accessible user interfaces, while my expertise in JavaScript and Node.js allows me to develop robust and performant backend systems. Whether working on a simple landing page or a sophisticated web application, I am committed to providing innovative solutions that help businesses thrive in the digital landscape. Hire me, and let's transform your vision into reality.</p>
@@ -86,14 +87,15 @@
             </div>
         </div>
     </section>
+    
 
 
-    <section id="projects" class="page-section bg-light">
+    <section id="projects" class="page-section bg-light animate__animated" >
         <div class="container">
             <h2 class="text-center mt-0">Projects</h2>
             <hr class="divider my-4">
             <div class="row">
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeUp">
                     <div class="card h-100 ">
                         <img src="img/photo_2024-06-02_18-14-12.jpg" class="card-img-top" alt="Project 1">
                         <div class="card-body">
@@ -103,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeUp">
                     <div class="card h-100">
                         <img src="img/e-commerce-8676517_1920.jpg" class="card-img-top" alt="Project 2">
                         <div class="card-body">
@@ -113,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeUp">
                     <div class="card h-100">
                         <img src="img/female-hand-holds-mobile-phone-looks-weather-forecast_101969-2838.jpg" class="card-img-top" alt="Project 3">
                         <div class="card-body">
@@ -125,7 +127,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeUp">
                     <div class="card h-100">
                         <img src="img/pexels-wdnet-242492.jpg" class="card-img-top" alt="Project 1">
                         <div class="card-body">
@@ -135,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeUp">
                     <div class="card h-100">
                         <img src="img/All-Time_Best_Blogging_Platforms_to_Launch_Your_Company_s_Blog_Design.jpg" class="card-img-top" alt="Project 2">
                         <div class="card-body">
@@ -145,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeUp">
                     <div class="card h-100">
                         <img src="img/11-Reasons-Why-A-Chat-Application-Is-Great-For-Business_1.jpg" class="card-img-top" alt="Project 3">
                         <div class="card-body">
@@ -221,5 +223,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="scripts.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1
+            };
+        
+            const aboutSection = document.querySelector('#about');
+            const projectCards = document.querySelectorAll('#projects .col-md-4');
+        
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__fadeIn');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+        
+            const projectObserverCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__fadeUp');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+        
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            const projectObserver = new IntersectionObserver(projectObserverCallback, observerOptions);
+        
+            observer.observe(aboutSection);
+        
+            projectCards.forEach(card => {
+                projectObserver.observe(card);
+            });
+        });
+        </script>
+
 </body>
 </html>
